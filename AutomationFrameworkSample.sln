@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31515.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecflowRunner", "SpecflowRunner\SpecflowRunner.csproj", "{DB0EC962-D871-4409-9502-0F0AC64518FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilities_UI", "Utilities_UI\Utilities_UI.csproj", "{3FE4DD4A-A6F4-448C-B3A1-1235A32F3F0E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DB0EC962-D871-4409-9502-0F0AC64518FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB0EC962-D871-4409-9502-0F0AC64518FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB0EC962-D871-4409-9502-0F0AC64518FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB0EC962-D871-4409-9502-0F0AC64518FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FE4DD4A-A6F4-448C-B3A1-1235A32F3F0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FE4DD4A-A6F4-448C-B3A1-1235A32F3F0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FE4DD4A-A6F4-448C-B3A1-1235A32F3F0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FE4DD4A-A6F4-448C-B3A1-1235A32F3F0E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {06615727-1F6D-4F8F-A77E-C6F99A94CD58}
+	EndGlobalSection
+EndGlobal
