@@ -9,8 +9,7 @@ namespace SpecflowRunner.Steps
         [Given(@"the user (.*) is logged in")]
         public void GivenTheUserIsLoggedIn(string username)
         {
-            Utilities.InitializeDriver();
-            Scenarios.Login();
+             Scenarios.Login();
         }
 
         [Given(@"the search term is (.*)")]
@@ -28,8 +27,8 @@ namespace SpecflowRunner.Steps
         [Then(@"the selected item should be added to cart")]
         public void ThenTheSelectedItemShouldBeAddedToCart()
         {
-            Scenarios.Logout();
-            Utilities.WebDriver.Quit();
+            Scenarios.ValidateItems();
+           
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿Feature: Amazon
-	Simple calculator for adding two numbers
-
+	
 @mytag
 Scenario: Add to cart
 	Given the user Shyamoli is logged in

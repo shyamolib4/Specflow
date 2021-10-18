@@ -23,15 +23,30 @@
     
     <PackageReference Include="FluentAssertions" Version="5.10.3" />
     
+
+    
+
+    
+
+    
+
+    
+    <PackageReference Include="SpecRun.SpecFlow.3-9-0" Version="3.9.7" />
+    
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Drivers\" />
-    <Folder Include="Hooks\" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Utilities_UI\Utilities_UI.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Default.srprofile">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

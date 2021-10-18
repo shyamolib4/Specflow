@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using System;
 using System.Collections.Generic;
@@ -10,9 +11,11 @@ namespace Utilities_UI
     public class Scenarios
     {
         static String SignInText;
+        static String telName;
+        static IWebElement SigninGrid;
         public static void Login()
         {
-            IWebElement SigninGrid = Utilities.WebDriver.FindElement(By.XPath("//div[@class='nav-signin-tt nav-flyout']"));
+            SigninGrid = Utilities.WebDriver.FindElement(By.XPath("//div[@class='nav-signin-tt nav-flyout']"));
 
             try
             {
@@ -37,7 +40,7 @@ namespace Utilities_UI
             finally
             {
                 Thread.Sleep(5000);
-                // WebDriver.Quit();
+               
             }
         }
 
@@ -68,15 +71,18 @@ namespace Utilities_UI
                 {
                     Utilities.Log("User " + actUser + " Successfully Signed-In");
 
+
                 }
                 else
                 {
                     Utilities.Log("User " + actUser + " Not Successfully Signed-In");
+                    Assert.Fail("User " + actUser + " Not Successfully Signed-In");
                 }
             }
             else
             {
                 Utilities.Log("We are not on the Sign-In page");
+                Assert.Fail("We are not on the Sign-In page");
             }
         }
 
@@ -97,7 +103,7 @@ namespace Utilities_UI
                 String windowHandle = Utilities.WebDriver.WindowHandles[1];
                 Utilities.WebDriver.SwitchTo().Window(windowHandle);
 
-                String telName = Utilities.WebDriver.FindElement(By.Id("productTitle")).Text;
+                telName = Utilities.WebDriver.FindElement(By.Id("productTitle")).Text;
                 Utilities.Log("Element to be added in the cart:" + telName);
 
                 Utilities.WebDriver.FindElement(By.XPath("//input[@value='Add to Cart']")).Click();
@@ -109,47 +115,12 @@ namespace Utilities_UI
                     Utilities.WebDriver.FindElement(By.Id("nav-cart-count-container")).Click();
                     Thread.Sleep(3000);
 
-                    IList<IWebElement> list = Utilities.WebDriver.FindElements(By.XPath("//span[@class='a-truncate-cut']"));
-
-                    foreach (IWebElement el in list)
-                    {
-                        //Program.Log("In the cart:" + el.Text);
-
-                        if (el.Text.Contains(telName))
-                        {
-                            //Assert.AreEqual(telName, el.Text);
-                            Utilities.Log("Verified item in the cart is:" + el.Text);
-                            break;
-                        }
-                        else
-                        {
-                            //Assert.AreNotEqual(telName, el.Text);
-                        }
-                    }
                 }
                 else
                 {
                     // Utilities.WebDriver.FindElement(By.Id("attach-close_sideSheet-link")).Click();
                     Utilities.WebDriver.FindElement(By.Id("nav-cart-count-container")).Click();
                     Thread.Sleep(3000);
-
-                    IList<IWebElement> list = Utilities.WebDriver.FindElements(By.XPath("//span[@class='a-truncate-cut']"));
-
-                    foreach (IWebElement el in list)
-                    {
-                        //Program.Log("In the cart:" + el.Text);
-
-                        if (el.Text.Contains(telName))
-                        {
-                            //Assert.AreEqual(telName, el.Text);
-                            Utilities.Log("Verified item in the cart is:" + el.Text);
-                            break;
-                        }
-                        else
-                        {
-                            //Assert.AreNotEqual(telName, el.Text);
-                        }
-                    }
                 }
 
             }
@@ -159,12 +130,34 @@ namespace Utilities_UI
             }
             finally
             {
+                Utilities.WebDriver.FindElement(By.Id("nav-cart-count-container")).Click();
                 Thread.Sleep(5000);
 
 
             }
         }
 
+        public static void ValidateItems()
+        {
+            IList<IWebElement> list = Utilities.WebDriver.FindElements(By.XPath("//span[@class='a-truncate-cut']"));
+
+            foreach (IWebElement el in list)
+            {
+
+                if (el.Text.Contains(telName))
+                {
+                   
+                    Assert.AreEqual(telName, el.Text);
+                    Utilities.Log("Verified item in the cart is:" + el.Text);
+                    break;
+                }
+                else
+                {
+                    Assert.AreNotEqual(telName, el.Text);
+                }
+            }
+
+        }
         public static void Logout()
         {
             Actions act = new Actions(Utilities.WebDriver);
